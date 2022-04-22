@@ -6,11 +6,11 @@ services:
     container_name: angular-node
     tty: true
     user: "node:node"
-    working_dir: /var/www
+    working_dir: /usr/src/app
     ports:
       - "4200:4200"
     volumes:
-      - ./:/var/www
+      - ./:/usr/src/app
     command: > 
         bash -c "npm install && ng serve --host 0.0.0.0 --port 4200"
     networks:
