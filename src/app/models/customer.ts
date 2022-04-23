@@ -4,11 +4,13 @@ export class Customer {
     private _cpf: number
     private _cnpj: number
     private _typePerson: string
+    private _zipcode: string
     private _street: string
     private _number: number
     private _neighborhood: string
     private _city: string
     private _state: string
+    private _telephone: string
 
     constructor() { }
 
@@ -32,4 +34,8 @@ export class Customer {
     set city(city: string) { this._city = city; }
     get state() { return this._state; }
     set state(state: string) { this._state = state; }
+    get telephone() { return this._telephone; }
+    set telephone(telephone: string) { this._telephone = telephone; }
+    get zipcode() { return this._zipcode; }
+    set zipcode(zipcode: string) { this._zipcode = zipcode; }
 }

@@ -7,6 +7,5 @@ import { Customer } from './models/customer';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  customers: Customer[] = [];
-  customer: Customer = new Customer();
+  
 }

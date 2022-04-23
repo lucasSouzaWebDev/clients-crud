@@ -1,0 +1,80 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col">
+            <form class="row g-3 needs-validation" novalidate (ngSubmit)="onSubmit()">
+                <input type="hidden" [value]="customer.id">
+                <div class="col-md-6">
+                    <label for="inputName" class="form-label">Nome:</label>
+                    <input type="text" class="form-control" id="inputName" placeholder="José da silva" name="name" [(ngModel)]="customer.name">
+                </div>
+                <div class="col-md-12">
+                    <div>
+                        <label class="form-label">Tipo de pessoa:</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="type-person" id="phisical"
+                            value="phisical" [checked]="customer.typePerson == 'phisical'" (change)="customer.typePerson = 'phisical'">
+                        <label class="form-check-label" for="phisical">Física</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="type-person" id="legal"
+                            value="legal" [checked]="customer.typePerson == 'legal'" (change)="customer.typePerson = 'legal'">
+                        <label class="form-check-label" for="legal">Jurídica</label>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-2" *ngIf="customer.typePerson == 'phisical'">
+                            <label for="inputCpf" class="form-label">CPF:</label>
+                            <input type="text" class="form-control" id="inputCpf" placeholder="000.000.000-00" name="cpf" [(ngModel)]="customer.cpf">
+                        </div>
+                        <div class="col-md-2" *ngIf="customer.typePerson == 'legal'">
+                            <label for="inputCnpj" class="form-label">CNPJ:</label>
+                            <input type="text" class="form-control" id="inputCnpj" placeholder="00.000.000/0000-00" name="cnpj" [(ngModel)]="customer.cnpj">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <label for="inputNumber" class="form-label">Logradouro</label>
+                    <input type="text" class="form-control" id="inputNumber" placeholder="Rua são José" name="street" [(ngModel)]="customer.street">
+                </div>
+                <div class="col-md-4">
+                    <label for="inputNeighborhood" class="form-label">Bairro</label>
+                    <input type="text" class="form-control" id="inputNeighborhood" placeholder="Centro" name="neighborhood" [(ngModel)]="customer.neighborhood">
+                </div>
+                <div class="col-3">
+                    <label for="inputZipcode" class="form-label">CEP:</label>
+                    <input type="text" class="form-control" id="inputZipcode" placeholder="85050-250" name="zipcode" [(ngModel)]="customer.zipcode">
+                </div>
+                <div class="col-1">
+                    <label for="inputNumber" class="form-label">Número</label>
+                    <input type="text" class="form-control" id="inputNumber" placeholder="148" name="number" [(ngModel)]="customer.number">
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+
+                            <label for="inputCity" class="form-label">Cidade</label>
+                            <input type="text" class="form-control" id="inputCity" placeholder="Guarapuava" name="city" [(ngModel)]="customer.city">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="inputState" class="form-label">Estado</label>
+                            <select id="inputState" class="form-select" name="state" [(ngModel)]="customer.state">
+                                <option>Selecione...</option>
+                                <option *ngFor="let state of states" [value]="state[0]" [selected]="customer.state == state[0]">{{state[1]}}</option>
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="inputCity" class="form-label">Telefone</label>
+                    <input type="text" class="form-control" id="inputCity" placeholder="42 98840-9724" name="telephone" [(ngModel)]="customer.telephone">
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">{{customer.id ? 'atualizar' : 'registrar'}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
