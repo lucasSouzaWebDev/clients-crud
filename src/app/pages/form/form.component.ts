@@ -22,7 +22,8 @@ export class FormComponent implements OnInit {
     });
 
     this.customer = this._customerService.getCustomer(this.id);
-    if(Object.keys(this.customer).length === 0){
+    
+    if(!this.customer.typePerson){
       this.customer.typePerson = 'phisical';
     }
     this.setStates();

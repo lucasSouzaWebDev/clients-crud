@@ -23,13 +23,12 @@ export class CustomerService {
   }
 
   public getCustomer(id: number): Customer {
-    console.log(id);
-    
+
     let customer = this._customers.find((customer) => customer.id == id)
     if (customer) {
       return customer
     }
-    
+
     return new Customer;
   }
 
@@ -44,7 +43,7 @@ export class CustomerService {
 
   public deleteCustomer(id) {
     let index = this._customers.findIndex((customer) => customer.id == id)
-    
+
     this._customers.splice(index, 1);
     sessionStorage.setItem('customers', JSON.stringify(this._customers))
   }
